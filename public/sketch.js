@@ -8,7 +8,7 @@ function setup() {
     
 
   createCanvas(windowWidth, windowHeight);
-    socket = io.connect('https://vigilant-leavitt-fd1598.netlify.app/');
+    socket = io.connect('http://localhost:3000');
     
     blob = new Blobs(width/2, height/2, 1);
     
