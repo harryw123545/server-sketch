@@ -33,7 +33,7 @@ class Blobs {
                 for(this.a = 0; this.a < TWO_PI; this.a += 0.1){
 
                     noStroke();
-                    fill(127 + 127 * sin(this.a * this.diameter * (this.iter+0.5) + this.time), 127 + 127 * sin(this.a * this.diameter * (this.iter+0.1) + this.time), 127 + 127 * sin(this.a * this.diameter * (this.iter+0.003) + this.time));
+                    fill(127 + 127 * sin(this.a * this.diameter * (this.iter+0.2) + this.time), 127 + 127 * sin(this.a * this.diameter * (this.iter+0.1) + this.time), 127 + 127 * sin(this.a * this.diameter * (this.iter+0.01) + this.time));
                     
                     this.xoff = map(cos(this.a), -1, 1, 0, this.noiseMax);
                     this.yoff = map(sin(this.a), -1, 1, 0, this.noiseMax);
