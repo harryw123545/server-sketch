@@ -1,6 +1,6 @@
 var socket;
 var blob;
-var clientCount = [];
+var clientCount = 0;
 let zoff = 0;
 let shapeSize;
 
@@ -15,12 +15,13 @@ function setup() {
 
     socket.on('mouse', newDrawing);
     
-    console.log('add count listener')
+    console.log('add count listener');
     socket.on('count', count => {
-        clientCount.push(count);
-        //console.log("clientCount: " + clientCount.length);
-        shapeSize = clientCount.length;
-        console.log("shapeSize: " + shapeSize);
+        clientCount = count;
+        console.log(clientCount);
+        //console.log(clientCount.length);
+        shapeSize = clientCount;
+        //console.log("shapeSize: " + shapeSize);
 
     })
     

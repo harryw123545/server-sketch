@@ -16,9 +16,10 @@ class Blobs {
           }
 
           update() {
-            this.time = frameCount*0.028;
-            this.iter = map(mouseX, 0, width, 0.1, 0.9);
-            this.noiseMax = shapeSize % 25;
+            this.time = frameCount*0.04;
+            //this.iter = map(mouseX, 0, width, 0.1, 0.9);
+            this.iter = clientCount*0.25;
+            this.noiseMax = clientCount*0.5 % 25;
           }
 
             display() {
@@ -32,7 +33,7 @@ class Blobs {
                 for(this.a = 0; this.a < TWO_PI; this.a += 0.1){
 
                     noStroke();
-                    fill(127 + 127 * sin(this.a * (this.diameter * this.iter) + this.time), 127 + 127 * sin(this.a * this.diameter * 0.6 + this.time), 127 + 127 * sin(this.a * this.diameter * 0.3 + this.time));
+                    fill(127 + 127 * sin(this.a * this.diameter * (this.iter+0.5) + this.time), 127 + 127 * sin(this.a * this.diameter * (this.iter+0.1) + this.time), 127 + 127 * sin(this.a * this.diameter * (this.iter+0.003) + this.time));
                     
                     this.xoff = map(cos(this.a), -1, 1, 0, this.noiseMax);
                     this.yoff = map(sin(this.a), -1, 1, 0, this.noiseMax);

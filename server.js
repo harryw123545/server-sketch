@@ -11,22 +11,19 @@ var socket = require('socket.io');
 
 var io = socket(server);
 
-io.sockets.on('connection', newConnection);
-
-function newConnection(socket) {
+io.sockets.on('connection', (socket) => {
     console.log('new connection: ' + socket.id);
-    
-    const count = io.engine.clientsCount;
-        
+            
     socket.on('mouse', mouseMsg);
-    io.emit('count', count);
-    console.log("clients: " + count);
+    io.emit('count', io.engine.clientsCount);
+    console.log("clients: " + io.engine.clientsCount);
     
     function mouseMsg(data) {
         socket.broadcast.emit('mouse', data);
         //console.log(data);
     }
     
-
-
-}
+    socket.on("disconnect", () => {
+        io.emit('count', io.engine.clientsCount);
+    });
+});
