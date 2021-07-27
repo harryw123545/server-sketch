@@ -13,7 +13,7 @@ function setup() {
     blob = new Blobs(width/2, height/2, 1);
     
 
-    socket.on('mouse', newDrawing);
+   // socket.on('mouse', newDrawing);
     
     console.log('add count listener');
     socket.on('count', count => {
@@ -28,17 +28,17 @@ function setup() {
     noCursor();
 }
 
-function newDrawing(data) {
-    noStroke();
-    fill(255, 0, 100);
-    ellipse(data.x, data.y, 16, 16);
-}
+//function newDrawing(data) {
+//    noStroke();
+//    fill(255, 0, 100);
+//    ellipse(data.x, data.y, 16, 16);
+//}
 
 
 
 function draw() {
     
-     background(0, 20);
+     background(0, 40);
     
      blob.update();
      blob.display();   
@@ -47,18 +47,18 @@ function draw() {
     
     zoff += 0.01;
     
-    var data = {
-        x: mouseX,
-        y: mouseY
-    }
+//    var data = {
+//        x: mouseX,
+//        y: mouseY
+//    }
     
     //console.log('Sending: ' + mouseX, mouseY);
     
-    socket.emit('mouse', data);
-    
-    noStroke();
-    fill(255);
-    ellipse(mouseX, mouseY, 16, 16);
+//    socket.emit('mouse', data);
+//    
+//    noStroke();
+//    fill(255);
+//    ellipse(mouseX, mouseY, 16, 16);
     
        
 }
